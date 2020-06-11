@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Cloudruid grocery store</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<script src="/js/jquery-1.12.4.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/products.js"></script>
+</head>
+<body>
+	<div id=content>
+		<div id="addProductButton">
+			<input type="image" id="addProduct" src="/images/addProduct.png" />
+		</div>
+
+		<div id="productTable">
+			<table id="products">
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Remove product</th>
+				</tr>
+				<tr>
+					<td>apple</td>
+					<td>50c</td>
+					<td id="deleteprod"><input type="button" id="deleteProduct"
+						value="+" onclick="" size="1"></td>
+				</tr>
+				<tr>
+					<td>banana</td>
+					<td>40c</td>
+					<td id="deleteprod"><input type="button" id="deleteProduct"
+						value="+" onclick="" size="1"></td>
+				</tr>
+				<tr>
+					<td>tomato</td>
+					<td>30c</td>
+					<td id="deleteprod"><input type="button" id="deleteProduct"
+						value="+" onclick="" size="1"></td>
+				</tr>
+				<tr>
+					<td>potato</td>
+					<td>26c</td>
+					<td id="deleteprod"><input type="button" id="deleteProduct"
+						value="+" onclick="" size="1"></td>
+				</tr>
+
+			</table>
+		</div>
+
+
+		<div id="specialOffers">
+			<table id="offers">
+				<tr>
+					<th>Offers</th>
+					<th>Products included</th>
+					<th>Edit offer</th>
+				</tr>
+				<tr>
+					<td>2 for 3</td>
+					<td>banana,tomato,apple</td>
+					<td id="editOffer">Edit</td>
+				</tr>
+				<tr>
+					<td>buy 1 get 1 free</td>
+					<td>potato</td>
+					<td id="editOffer">Edit</td>
+				</tr>
+
+			</table>
+		</div>
+
+		<div id="getBill">
+			<h3>
+				Please type your order: <input type="text" id="order"> <input
+					type="button" id="checkout" value="Checkout" onclick="" size="1">
+			</h3>
+			<h3>Your bill is :</h3>
+		</div>
+
+	</div>
+</body>
+</html>

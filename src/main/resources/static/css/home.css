@@ -1,0 +1,83 @@
+#content {
+	position: relative;
+}
+
+table#products {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 305px;
+	table-layout: auto;
+	border: 1px solid #dddddd;
+	table-layout: auto;
+}
+
+table#offers {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #dddddd;
+	text-align: center;
+	table-layout: auto;
+}
+
+#productTable {
+	margin-top: 5px;
+	margin-left: 50px;
+	position: relative;
+	float: left;
+}
+
+#specialOffers {
+	position: relative;
+	margin-top: 5px;
+	margin-left: 400px;
+}
+
+td#editOffer {
+	text-align: center;
+	font-weight: bold;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+th {
+	font-weight: bold;
+	text-align: center;
+}
+
+#productQuantity {
+	width: 80%;
+}
+
+div#addProductButton {
+	margin-top: 80px;
+	outline: none;
+	width: 238px;
+}
+
+input#deleteProduct {
+	transform: rotate(45deg);
+	position: relative;
+	font-size: 40px;
+	margin: auto;
+	display: block;
+	background-color: #fff;
+	border: 0px;
+	outline: none;
+	cursor: pointer;
+}
+
+#getBill {
+	margin-top: 200px;
+	position: absolute;
+	float: left;
+	margin-left: 50px;
+}
+
+#order {
+	position: relative;
+	width: 400px;
+}
