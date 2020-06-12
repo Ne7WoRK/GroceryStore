@@ -1,7 +1,6 @@
 Installation guide:
-
-1.Upload database.sql to a new database.
 -------------------------------------------------------------
+1.Upload database.sql to a new database.
 2. Modify the following rows in application.properties
 
 spring.datasource.url=jdbc:mysql://localhost:3306/$DBNAMEuseUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Sofia
