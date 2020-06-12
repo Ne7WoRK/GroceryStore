@@ -1,6 +1,6 @@
-#content {
-	position: relative;
-}
+html,body {
+    height:100%;
+}	
 
 table#products {
 	font-family: arial, sans-serif;
@@ -22,19 +22,22 @@ table#offers {
 #productTable {
 	margin-top: 5px;
 	margin-left: 50px;
-	position: relative;
+	position: absolute;
 	float: left;
+	
 }
 
 #specialOffers {
-	position: relative;
+	position: absolute;
 	margin-top: 5px;
 	margin-left: 400px;
 }
 
-td#editOffer {
-	text-align: center;
-	font-weight: bold;
+#addProduct{
+	background-color:yellow;
+	position:absolute;
+	float:left;
+	border: 2px solid #000000;
 }
 
 td, th {
@@ -46,16 +49,6 @@ td, th {
 th {
 	font-weight: bold;
 	text-align: center;
-}
-
-#productQuantity {
-	width: 80%;
-}
-
-div#addProductButton {
-	margin-top: 80px;
-	outline: none;
-	width: 238px;
 }
 
 input#deleteProduct {
@@ -70,12 +63,13 @@ input#deleteProduct {
 	cursor: pointer;
 }
 
-#getBill {
-	margin-top: 200px;
+div#getBill {
 	position: absolute;
 	float: left;
 	margin-left: 50px;
+	margin-top:450px;
 }
+
 
 #order {
 	position: relative;

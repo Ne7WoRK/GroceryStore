@@ -7,81 +7,78 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" type="text/css" href="/css/home.css">
-<script src="/js/jquery-1.12.4.js"></script>
-<script src="/js/jquery-ui.js"></script>
-<script src="/js/products.js"></script>
 </head>
 <body>
-	<div id=content>
-		<div id="addProductButton">
-			<input type="image" id="addProduct" src="/images/addProduct.png" />
-		</div>
 
-		<div id="productTable">
-			<table id="products">
-				<tr>
-					<th>Product</th>
-					<th>Price</th>
-					<th>Remove product</th>
-				</tr>
-				<tr>
-					<td>apple</td>
-					<td>50c</td>
-					<td id="deleteprod"><input type="button" id="deleteProduct"
-						value="+" onclick="" size="1"></td>
-				</tr>
-				<tr>
-					<td>banana</td>
-					<td>40c</td>
-					<td id="deleteprod"><input type="button" id="deleteProduct"
-						value="+" onclick="" size="1"></td>
-				</tr>
-				<tr>
-					<td>tomato</td>
-					<td>30c</td>
-					<td id="deleteprod"><input type="button" id="deleteProduct"
-						value="+" onclick="" size="1"></td>
-				</tr>
-				<tr>
-					<td>potato</td>
-					<td>26c</td>
-					<td id="deleteprod"><input type="button" id="deleteProduct"
-						value="+" onclick="" size="1"></td>
-				</tr>
+	<div id="productTable">
+		<table id="products">
+			<tr>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Remove product</th>
+			</tr>
 
-			</table>
-		</div>
+			<tr th:each="prod : ${products}">
+				<td th:text="${prod.name}"></td>
+				<!-- 				th:text="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} + ' aws'" -->
+				<td><span
+					th:if="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} < 1">
+						<span
+						th:text="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} + ' clouds'"></span>
+				</span> <span
+					th:unless="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} > 1"></span>
+					<span
+					th:text="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} + ' aws'"></span>
+
+				</td>
+				<td id="deleteprod">
+					<form th:action="@{'/products/delete/'+${prod.id}}" method="post">
+						<input type="submit" id="deleteProduct" value="+">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="addProduct">
+		<form method="POST" th:action="@{/products/add}" th:object="${product}">
+			<label for="pname">Product name: </label> <input th:field="*{name}" type="text" id="pname" placeholder="banana"><br> 
+			<label for="price">Price (in decimal): </label><input th:field="*{price}" type="text" id="price" placeholder="1.45 or 0.30 (should be decimal)">
+			<br>
+			<br> <input type="submit" value="Add product">
+		</form>
+	</div>
 
 
-		<div id="specialOffers">
-			<table id="offers">
-				<tr>
-					<th>Offers</th>
-					<th>Products included</th>
-					<th>Edit offer</th>
-				</tr>
-				<tr>
-					<td>2 for 3</td>
-					<td>banana,tomato,apple</td>
-					<td id="editOffer">Edit</td>
-				</tr>
-				<tr>
-					<td>buy 1 get 1 free</td>
-					<td>potato</td>
-					<td id="editOffer">Edit</td>
-				</tr>
+	<div id="specialOffers">
+		<table id="offers">
+			<tr>
+				<th>Offers</th>
+				<th>Products included</th>
+			</tr>
+			<tr>
+				<td>2 for 3</td>
+				<td><span th:if="${#lists.isEmpty(twoForThree)}">No
+						products in this offer !</span> <span th:each="prod : ${twoForThree}"
+					th:text="${prod.name} +', '"></span></td>
+			</tr>
+			<tr>
+				<td>buy 1 get 1 free</td>
+				<td><span th:if="${#lists.isEmpty(oneForOne)}">No
+						products in this offer !</span> <span th:each="prod : ${oneForOne}"
+					th:text="${prod.name} +', '"></span></td>
+			</tr>
 
-			</table>
-		</div>
+		</table>
+	</div>
 
-		<div id="getBill">
-			<h3>
-				Please type your order: <input type="text" id="order"> <input
-					type="button" id="checkout" value="Checkout" onclick="" size="1">
-			</h3>
-			<h3>Your bill is :</h3>
-		</div>
-
+	<div id="getBill">
+		<h3>
+			Please type your order: <input type="text" id="order"
+				placeholder="banana,apple,tomato"> <input type="button"
+				id="checkout" value="Checkout" onclick="" size="1">
+		</h3>
+		<!-- 		<h3>Your bill is :</h3> -->
 	</div>
 </body>
 </html>

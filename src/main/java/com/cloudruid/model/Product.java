@@ -1,5 +1,9 @@
 package com.cloudruid.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,22 +11,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "products")
+@Table(name = "products")
 public class Product {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String name;
-	private double price;
-	private String offer;
 	
+	@Column(name = "name", nullable = false)
+	private String name;
+	
+	@Column(name = "price", nullable = false)
+	private double price;
+	
+	@Column(name = "offer", nullable = true)
+	private String offer;
+
 	public Product(Long id, String name, double price) {
 		this.id = id;
 		this.setName(name);
 		this.setPrice(price);
 	}
-	
+
 	public Product() {
 		super();
 	}
@@ -44,14 +54,19 @@ public class Product {
 	}
 
 	public double getPrice() {
-		return price;
+		BigDecimal bd = new BigDecimal(price).setScale(2, RoundingMode.HALF_UP);
+		double roundedPrice = bd.doubleValue();
+
+		return roundedPrice;
 	}
 
 	public void setPrice(double price) {
-		this.price = price;
+		BigDecimal bd = new BigDecimal(price).setScale(2, RoundingMode.HALF_UP);
+		double roundedPrice = bd.doubleValue();
+		this.price = roundedPrice;
 	}
-	
-	 public String getOffer() {
+
+	public String getOffer() {
 		return offer;
 	}
 
@@ -60,31 +75,30 @@ public class Product {
 	}
 
 	public boolean equals(Object o) {
-	       
-		 if (o == this) { 
-	            return true; 
-	        }
-		 
-	       if (!(o instanceof Product)) { 
-	            return false; 
-	        }
-	       
-	       Product p = (Product) o; 
-	        return name.equals(p.name) && price == p.price; 
-	 }
-	
-	public String toString(){
-		
-		//Splitting the price in aws and clouds
+
+		if (o == this) {
+			return true;
+		}
+
+		if (!(o instanceof Product)) {
+			return false;
+		}
+
+		Product p = (Product) o;
+		return name.equals(p.name) && price == p.price;
+	}
+
+	public String toString() {
+
+		// Splitting the price in aws and clouds
 		String[] price = String.valueOf(String.format("%.2f", getPrice())).split("\\.");
-		
+
 		if (!price[0].equals("0")) {
-			return "Name: " + getName() + "\nPrice: " + price[0] + " aws " + price[1] + " c " + "(" + getPrice()*100+" clouds)" ;
+			return "Name: " + getName() + "\nPrice: " + price[0] + " aws " + price[1] + " c " + "(" + getPrice() * 100
+					+ " clouds)";
 		} else {
-			return "Name: " + getName() + "\nPrice: " + price[1] +"c";
+			return "Name: " + getName() + "\nPrice: " + price[1] + "c";
 		}
 	}
-	
-	
 
 }
