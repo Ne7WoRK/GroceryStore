@@ -1,6 +1,6 @@
-html,body {
-    height:100%;
-}	
+html, body {
+	height: 100%;
+}
 
 table#products {
 	font-family: arial, sans-serif;
@@ -24,7 +24,6 @@ table#offers {
 	margin-left: 50px;
 	position: absolute;
 	float: left;
-	
 }
 
 #specialOffers {
@@ -33,17 +32,40 @@ table#offers {
 	margin-left: 400px;
 }
 
-#addProduct{
-	background-color:yellow;
+#editTwoForThree{
 	position:absolute;
-	float:left;
-	border: 2px solid #000000;
+	margin-top:200px;
+	margin-left:400px;
+}
+
+#editOneForOne{
+	position:absolute;
+	margin-top:200px;
+	margin-left:800px;
+}
+
+#addProduct {
+	margin-left: 50px;
+	position:absolute;
+	display: table;
+	margin-top:5px;
+	margin-left:750px;
+	border: 1px solid #000000;
 }
 
 td, th {
 	border: 1px solid #dddddd;
 	text-align: left;
 	padding: 8px;
+}
+
+td#pricetag{
+	width:70px;
+}
+
+input#checkout{
+	width:400px;
+	position:relative;
 }
 
 th {
@@ -67,9 +89,8 @@ div#getBill {
 	position: absolute;
 	float: left;
 	margin-left: 50px;
-	margin-top:450px;
+	margin-top: 600px;
 }
-
 
 #order {
 	position: relative;

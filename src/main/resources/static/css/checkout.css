@@ -1,0 +1,66 @@
+html, body {
+	height: 100%;
+}
+
+table#products {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 305px;
+	table-layout: auto;
+	border: 1px solid #dddddd;
+	table-layout: auto;
+}
+
+table#offers {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #dddddd;
+	text-align: center;
+	table-layout: auto;
+}
+
+#productTable {
+	margin-top: 5px;
+	margin-left: 50px;
+	position: absolute;
+	float: left;
+}
+
+#specialOffers {
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 400px;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+td#pricetag{
+	width:70px;
+}
+
+th {
+	font-weight: bold;
+	text-align: center;
+}
+
+div#getBill {
+	position: absolute;
+	float: left;
+	margin-left: 50px;
+	margin-top: 600px;
+}
+
+#order {
+	position: relative;
+	width: 400px;
+}
+
+#total{
+	margin-left:50px;
+	margin-top:250px;
+	float:left;
+}

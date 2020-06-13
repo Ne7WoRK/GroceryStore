@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Cloudruid grocery store</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" href="/css/checkout.css">
+</head>
+<body>
+<div id="content">
+	<div id="productTable">
+		<table id="products">
+			<tr>
+				<th>Product</th>
+				<th>Price</th>
+			</tr>
+
+			<tr th:each="prod : ${products}">
+				<td th:text="${prod.name}"></td>
+				<td id="pricetag">
+					<span th:if="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} &lt; 1" th:text="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} + ' c'"></span>
+					<span th:unless="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} &lt; 1" th:text="${#numbers.formatDecimal(prod.price, 1, 'COMMA', 2, 'POINT')} + ' aws'"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="specialOffers">
+		<table id="offers">
+			<tr>
+				<th>Offers</th>
+				<th>Products included</th>
+			</tr>
+			<tr>
+				<td>2 for 3</td>
+				<td>
+					<span th:if="${#lists.isEmpty(twoForThree)}">No products in this offer !</span> 
+					<span th:each="prod : ${twoForThree}" th:text="${prod.name} +', '"></span></td>
+			</tr>
+			<tr>
+				<td>buy 1 get 1 half price</td>
+				<td>
+					<span th:if="${#lists.isEmpty(oneForOne)}">No products in this offer !</span> 
+					<span th:each="prod : ${oneForOne}" th:text="${prod.name} +', '"></span></td>
+			</tr>
+
+		</table>
+	</div>
+	
+	<div id="total"> 
+	<h3>You ordered :<span th:each="prod : ${orderProd}" th:text="' '+${prod.name}"></span></h3>
+	<h3>Your bill is :<span th:name="bill" th:text="' '+${bill}"></span></h3>
+	</div>
+	</div>
+	</body>
+</html>

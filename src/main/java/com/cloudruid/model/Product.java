@@ -27,10 +27,11 @@ public class Product {
 	@Column(name = "offer", nullable = true)
 	private String offer;
 
-	public Product(Long id, String name, double price) {
+	public Product(Long id, String name, double price, String offer) {
 		this.id = id;
-		this.setName(name);
-		this.setPrice(price);
+		this.name = name;
+		this.price = price;
+		this.offer = "";
 	}
 
 	public Product() {
@@ -94,10 +95,10 @@ public class Product {
 		String[] price = String.valueOf(String.format("%.2f", getPrice())).split("\\.");
 
 		if (!price[0].equals("0")) {
-			return "Name: " + getName() + "\nPrice: " + price[0] + " aws " + price[1] + " c " + "(" + getPrice() * 100
-					+ " clouds)";
+			return "Name: " + getName() + "\nPrice: " + price[0] + " aws " + price[1] + " c " + "(" + (int)(getPrice() * 100)
+					+ " clouds)" + "\nOffer: " + getOffer();
 		} else {
-			return "Name: " + getName() + "\nPrice: " + price[1] + "c";
+			return "Name: " + getName() + "\nPrice: " + price[1] + "clouds" + "\nOffer: " + getOffer();
 		}
 	}
 
