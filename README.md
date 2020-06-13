@@ -12,3 +12,5 @@ spring.datasource.password=$password
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect (specify your mysql dialect. I used XAMPP built in phpmyadmin which uses MariaDBDialect)
 ```
 3.Run com.cloudruid.groceries -> CloudruidApplication as Spring Boot application.
+
+4.Access url `http://localhost:8080/products`
