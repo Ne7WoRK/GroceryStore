@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2020 at 05:12 PM
+-- Generation Time: Jun 17, 2020 at 10:07 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -43,7 +43,9 @@ INSERT INTO `products` (`id`, `name`, `price`, `offer`) VALUES
 (12, 'apple', '0.50', 'twoforthree'),
 (13, 'banana', '0.40', 'twoforthree'),
 (14, 'tomato', '0.30', 'twoforthree'),
-(15, 'potato', '0.26', 'oneforone');
+(15, 'potato', '0.26', 'oneforone'),
+(22, 'avocado', '1.44', 'oneforone'),
+(23, 'orange', '0.20', 'oneforone');
 
 --
 -- Indexes for dumped tables
