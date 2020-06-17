@@ -41,7 +41,7 @@ table#offers {
 #editOneForOne{
 	position:absolute;
 	margin-top:200px;
-	margin-left:800px;
+	margin-left:900px;
 }
 
 #addProduct {
@@ -49,7 +49,7 @@ table#offers {
 	position:absolute;
 	display: table;
 	margin-top:5px;
-	margin-left:750px;
+	margin-left:1100px;
 	border: 1px solid #000000;
 }
 

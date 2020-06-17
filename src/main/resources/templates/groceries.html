@@ -56,7 +56,8 @@
 				<td>2 for 3</td>
 				<td>
 					<span th:if="${#lists.isEmpty(twoForThree)}">No products in this offer !</span> 
-					<span th:each="prod : ${twoForThree}" th:text="${prod.name} +', '"></span></td>
+					<span th:each="prod : ${twoForThree}" th:text="${prod.name} +', '"></span>
+			    </td>
 			</tr>
 			<tr>
 				<td>buy 1 get 1 half price</td>
@@ -68,7 +69,6 @@
 		</table>
 	</div>
 
-
 	<div id="editTwoForThree">
 		<h4 id="offer2for3">Edit 2:3 offer</h4>
 		
@@ -76,26 +76,27 @@
 			
 			<label for="twoforthreeAdd">Choose a product to add</label> 
 			<select th:name="product" id="product">
+				<option th:if="${#lists.isEmpty(noffer)}">No products available</option>
 				<option th:each="prod : ${noffer}" th:text="${prod.name}"></option>
 			</select> <input type="submit" value="Add product">
 		
 		</form>
 		
 		</br>
-
 		
 		<form th:object="${product}" th:action="@{'/products/removeoffer/' + ${product.name}}" method="post">
 			<label for="twoforthree">Choose a product to remove</label> 
 			
 			<select th:name="product" id="product">
+				<option th:if="${#lists.isEmpty(twoForThree)}">Empty offer</option>
 				<option th:each="prod : ${twoForThree}" th:text="${prod.name}"></option>
-			</select> <input type="submit" value="Remove">
+			</select> 
+			<input type="submit" value="Remove">
 		
 		</form>
 	
 	
 	</div>
-	
 	
 		<div id="editOneForOne">
 		<h4 id="offer2for3">Edit buy 1 get 1 half price offer</h4>
@@ -104,19 +105,22 @@
 			<label for="oneForOne">Choose a product to add</label> 
 			
 			<select th:name="product" id="product">
+				<option th:if="${#lists.isEmpty(noffer)}">No products available</option>
 				<option th:each="prod : ${noffer}" th:text="${prod.name}"></option>
-			</select> <input type="submit" value="Add product">
+			</select> 
+			<input type="submit" value="Add product">
 		
 		</form>
 		</br>
-
 		
 		<form th:object="${product}" th:action="@{'/products/removeoffer/{product}' + ${product.name}}" method="post">
 			<label for="oneForOne">Choose a product to remove</label> 
 			
 			<select th:name="product" id="product">
+				<option th:if="${#lists.isEmpty(oneForOne)}">Empty offer</option>
 				<option th:each="prod : ${oneForOne}" th:text="${prod.name}"></option>
-			</select> <input type="submit" value="Remove">
+			</select> 
+			<input type="submit" value="Remove">
 		
 		</form>
 	
